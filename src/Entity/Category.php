@@ -97,4 +97,9 @@ class Category
 
         return $this;
     }
+    public function __toSting()
+    {
+        return (string) $this->getName();
+    }
+
 }
