@@ -3,6 +3,7 @@
 {% block title %}Post index{% endblock %}
 
 {% block body %}
+    <div class="container">
     <h1>Post index</h1>
 
     <table class="table">
@@ -11,6 +12,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Description</th>
+                <th>Category</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +22,7 @@
                 <td>{{ post.id }}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.description }}</td>
+                <td>{{ post.category }}</td>
                 <td>
                     <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
                     <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
@@ -33,5 +36,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('post_new') }}">Create new</a>
+    <a class="btn btn-success" href="{{ path('post_new') }}">Create new</a>
+    </div>
 {% endblock %}
