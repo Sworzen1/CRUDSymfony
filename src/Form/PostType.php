@@ -18,6 +18,9 @@ class PostType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => "App\Entity\Category",
             ])
+            ->add('user', EntityType::class, [
+                'class' => "App\Entity\User",
+            ])
         ;
     }
 
