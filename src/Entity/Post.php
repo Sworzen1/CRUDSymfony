@@ -40,10 +40,18 @@ class Post
 
 
     /**
-     * @Gedmo\Slug(fields={"title", "description"})
+     * @Gedmo\Slug(fields={"title", "createdAt"})
      * @ORM\Column(type="string", length=125)
      */
     private $slug;
+
+    /**
+     * @var \DateTime $createdAt
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $createdAt;
 
 
     public function getId(): ?int
