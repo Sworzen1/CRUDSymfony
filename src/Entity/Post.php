@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
@@ -36,6 +37,14 @@ class Post
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="post")
      */
     private $user;
+
+
+    /**
+     * @Gedmo\Slug(fields={"title", "description"})
+     * @ORM\Column(type="string", length=125)
+     */
+    private $slug;
+
 
     public function getId(): ?int
     {
@@ -86,6 +95,30 @@ class Post
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
