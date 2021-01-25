@@ -20,8 +20,10 @@ class PostController extends AbstractController
      */
     public function index(PostRepository $postRepository): Response
     {
+        $test = $postRepository->testQuery();
         return $this->render('post/index.html.twig', [
             'posts' => $postRepository->findAll(),
+            'test' => $test
         ]);
     }
 
